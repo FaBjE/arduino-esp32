@@ -6,13 +6,14 @@
 
 #include "esp_zigbee_cluster.h"
 
-uint8_t ZigbeeEP::_endpoint = 0;
-bool ZigbeeEP::_is_bound = false;
-bool ZigbeeEP::_allow_multiple_binding = false;
+
 
 /* Zigbee End Device Class */
 ZigbeeEP::ZigbeeEP(uint8_t endpoint) {
   _endpoint = endpoint;
+  _is_bound = false;
+  _allow_multiple_binding = false;
+
   _ep_config.endpoint = 0;
   _cluster_list = nullptr;
 #if !CONFIG_DISABLE_HAL_LOCKS
